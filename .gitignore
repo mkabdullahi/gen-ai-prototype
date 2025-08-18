@@ -201,3 +201,18 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# IDE
+.vscode/
+.idea/
+
+# Test artifacts
+.coverage
+htmlcov/
+test-results.xml
+.pytest_cache/
+
+# Local development
+.env
+.env.local
+*.env
