@@ -216,3 +216,4 @@ test-results.xml
 .env
 .env.local
 *.env
+.dump.txt
