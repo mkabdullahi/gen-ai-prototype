@@ -1,4 +1,4 @@
-# Ollama Streamlit Interface
+# Multi Models AI Assistance Interface
 
 ![Python Version](https://img.shields.io/badge/python-3.9%2B-blue)
 ![Streamlit Version](https://img.shields.io/badge/streamlit-1.36.0-green)
