@@ -29,7 +29,7 @@ def get_ollama_response(prompt, model, temperature, max_tokens):
 st.title("Multi Models AI Assistance")
 st.write("Seamless Search Experience through Multi Models AI Assistance")
 model_name = st.selectbox(
-    "Model",
+    "Select a Model",
     list(MODEL_INFO.keys()),
     index=0,
     help="Select AI model (only installed models will work)"
@@ -37,9 +37,7 @@ model_name = st.selectbox(
 st.caption(MODEL_INFO[model_name])
 user_input = st.text_input("Enter your query:",  help="Type your question or prompt here").strip()
 # Basic input sanitization
-if not user_input:
-    st.error("Please enter a query")
-    st.stop()
+    
 if len(user_input) > 2000:
     st.error("Query too long (max 2000 characters)")
     st.stop()
@@ -51,6 +49,9 @@ if re.search(r"[^\w\s.,?!-]", user_input):
 temperature = st.slider("Temperature", 0.0, 1.0, 0.7, help="Controls response randomness (0.0 = predictable, 1.0 = creative)")
 max_tokens = st.selectbox("Max Response Length", [100, 250, 500, 750, 1000, 1500, 2000], index=2, help="Limits total response length in characters (approximate)")
 if st.button("Submit"):
+    if not user_input:
+        st.error("Please enter a query, in the text box above.")
+        st.stop()
     with st.spinner("Generating response..."):
         try:
             response = get_ollama_response(user_input, model_name, temperature, max_tokens)
